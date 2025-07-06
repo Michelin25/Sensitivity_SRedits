@@ -1,16 +1,24 @@
+The R packages required for this analysis are `sensobol`, `lhs`, `BASS`, `GPfit`, and `mcse`. 
+
+Before installing the necessary R packages, we recommend updating R to version 4.4.2 and deleting any dependences for any of these R packages that were installed on an earlier version of R.
+
 To run the analysis, simply follow the scripts based on their beginning numbers:
 
 0_library.R is the script that loads all the packages, functions and parameters. You may change the test function to use or the testing dimensions or the sample sizes in this script. (you also define the working directory here, essentially you only to make changes in this script)
 
 1_ through 4_ scripts are the analysis of the four sensitivity analysis methods. They record the convergence size and sensitivity indices under different sample sizes.
 
-5_ scripts compute quantities for comparison of sensitivity analysis approaches based on their outputs. 
-- Scripts starting with 5_computeTotalTimes should be run before those starting with 5_computeTimeStats.
+5_ scripts compute quantities for comparison of sensitivity analysis approaches based on their outputs. Run these in the following order, where only 1 and 2 are needed to generate FastestMeanTime.pdf.
+1. Scripts starting with 5_computeTotalTimes
+2. Scripts starting with 5_computeTimeStats
+3. Scripts starting with 5_getBestForAllSeeds
 
 6_ scripts compare sensitivity analysis approaches using the computed quantities.
 - Scripts starting with 6_howBetterIsBest should be run before those starting with 6_whatIsBetterNoBest.
+- To generate FastestMeanTime.pdf, run 6_bestFor30D.R
 
 7_ scripts generate plots to compare sensitivity analysis approaches.
+- To generate FastestMeanTime.pdf, run 7_FastestMeanTimeFig.R
 
 10_Timescales.R generates plots that show the timescale needed for each combination of model run time and model input dimension. There is one plot per sensitivity analysis method.
 
